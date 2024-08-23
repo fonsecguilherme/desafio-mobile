@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../domain/gabriel_repository.dart';
-import '../../../../domain/models/video_model.dart';
+import '../../data/gabriel_repository.dart';
+import '../../models/video_model.dart';
 
 part 'locations_state.dart';
 

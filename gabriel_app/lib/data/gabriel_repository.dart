@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:gabriel_app/domain/models/video_model.dart';
+import 'package:gabriel_app/models/video_model.dart';
 import 'package:http/http.dart' as http;
 
 abstract interface class IGabrielRepository {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gabriel_app/core/commons/messages.dart';
-import 'package:gabriel_app/core/features/locations/cubit/locations_cubit.dart';
-import 'package:gabriel_app/core/features/locations/locations_page.dart';
-import 'package:gabriel_app/domain/gabriel_repository.dart';
+import 'package:gabriel_app/utils/messages.dart';
+import 'package:gabriel_app/business_logic/locations/locations_cubit.dart';
+import 'package:gabriel_app/presentation/locations/locations_page.dart';
+import 'package:gabriel_app/data/gabriel_repository.dart';
 
-import 'cubit/login_cubit.dart';
-import 'cubit/login_state.dart';
+import '../../business_logic/login/login_cubit.dart';
+import '../../business_logic/login/login_state.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

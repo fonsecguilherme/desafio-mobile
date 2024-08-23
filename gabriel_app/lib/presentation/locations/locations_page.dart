@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gabriel_app/core/features/location_detail/location_detail_page.dart';
-import 'package:gabriel_app/core/features/locations/cubit/locations_cubit.dart';
+import 'package:gabriel_app/presentation/location_detail/location_detail_page.dart';
+import 'package:gabriel_app/business_logic/locations/locations_cubit.dart';
 
-import '../../../domain/models/video_model.dart';
+import '../../models/video_model.dart';
 
 class LocationsPage extends StatefulWidget {
   const LocationsPage({super.key});

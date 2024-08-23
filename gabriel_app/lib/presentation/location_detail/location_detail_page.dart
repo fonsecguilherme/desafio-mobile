@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-import 'package:gabriel_app/domain/models/video_info.dart';
+import 'package:gabriel_app/models/video_info.dart';
 import 'package:video_player/video_player.dart';
 
 class LocationDetailPage extends StatefulWidget {
