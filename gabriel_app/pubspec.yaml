@@ -8,10 +8,12 @@ environment:
 
 dependencies:
   bloc: ^8.1.4
+  chewie: ^1.8.3
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
   http: ^1.2.2
+  video_player: ^2.9.1
 
 dev_dependencies:
   flutter_test:
