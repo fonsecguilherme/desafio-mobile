@@ -10,7 +10,9 @@ abstract interface class IGabrielRepository {
 class GabrielRepository extends IGabrielRepository {
   @override
   Future<VideoModel?> getAllLocations({String size = '10'}) async {
-    final url = 'http://127.0.0.1:3001/v1/videos/history?limit=$size';
+    final url =
+        'http://10.0.2.2:3001/v1/videos/history?limit=$size'; //! para rodar no emulador android
+    // final url = 'http://127.0.0.1:3001/v1/videos/history?limit=$size'; //! para rodar no emulador ios
 
     try {
       final response = await http.get(Uri.parse(url));
