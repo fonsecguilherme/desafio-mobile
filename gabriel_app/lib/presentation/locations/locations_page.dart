@@ -80,8 +80,6 @@ class _LocationsPageState extends State<LocationsPage> {
             } else if (state is SuccessLocationsState) {
               final address = state.result.data;
 
-              log('$address');
-
               return _SuccessLocationWidget(address: address);
             }
             return const SizedBox();

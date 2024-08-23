@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/gabriel_repository.dart';
@@ -15,8 +14,6 @@ class LocationsCubit extends Cubit<LocationsState> {
 
   Future<void> getLocations({String size = '10'}) async {
     emit(LoadingLocationsState());
-
-    log(size);
 
     try {
       final result = await repository.getAllLocations(size: size);

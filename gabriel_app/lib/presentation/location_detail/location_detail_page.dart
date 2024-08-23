@@ -27,9 +27,6 @@ class _LocationDetailPageState extends State<LocationDetailPage> {
   @override
   void initState() {
     super.initState();
-
-    log(widget.videoUrl);
-
     _videoPlayerController =
         VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl))
           ..initialize().then((_) {
