@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/gabriel_repository.dart';
-import '../../models/video_model.dart';
+import '../../data/repository/gabriel_repository.dart';
+import '../../data/models/video_model.dart';
 
 part 'locations_state.dart';
 

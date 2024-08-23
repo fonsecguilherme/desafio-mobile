@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gabriel_app/utils/messages.dart';
 import 'package:gabriel_app/business_logic/locations/locations_cubit.dart';
+import 'package:gabriel_app/data/repository/gabriel_repository.dart';
 import 'package:gabriel_app/presentation/locations/locations_page.dart';
-import 'package:gabriel_app/data/gabriel_repository.dart';
+import 'package:gabriel_app/utils/messages.dart';
 
 import '../../business_logic/login/login_cubit.dart';
 import '../../business_logic/login/login_state.dart';
@@ -17,6 +17,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   LoginCubit get loginCubit => context.read<LoginCubit>();
+  IGabrielRepository get repository => context.read<IGabrielRepository>();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
               MaterialPageRoute(
                 builder: (context) => BlocProvider(
                   create: (context) => LocationsCubit(
-                    repository: GabrielRepository(),
+                    repository: repository,
                   ),
                   child: const LocationsPage(),
                 ),

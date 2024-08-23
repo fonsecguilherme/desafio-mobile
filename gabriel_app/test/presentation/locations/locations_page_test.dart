@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gabriel_app/business_logic/locations/locations_cubit.dart';
-import 'package:gabriel_app/models/address_model.dart';
-import 'package:gabriel_app/models/location_info_model.dart';
-import 'package:gabriel_app/models/video_info.dart';
-import 'package:gabriel_app/models/video_model.dart';
+import 'package:gabriel_app/data/models/address_model.dart';
+import 'package:gabriel_app/data/models/location_info_model.dart';
+import 'package:gabriel_app/data/models/video_info.dart';
+import 'package:gabriel_app/data/models/video_model.dart';
 import 'package:gabriel_app/presentation/locations/locations_page.dart';
 import 'package:mocktail/mocktail.dart';
 
