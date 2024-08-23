@@ -117,6 +117,7 @@ class _LoginInitialWidgetState extends State<LoginInitialWidget> {
             maxLength: 18,
             controller: passwordController,
             keyboardType: TextInputType.number,
+            obscureText: true,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.key),
               contentPadding: const EdgeInsets.all(16.0),

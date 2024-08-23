@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gabriel_app/core/features/location_detail/location_detail_page.dart';
 import 'package:gabriel_app/core/features/locations/cubit/locations_cubit.dart';
+
+import '../../../domain/models/video_model.dart';
 
 class LocationsPage extends StatefulWidget {
   const LocationsPage({super.key});
@@ -26,7 +31,13 @@ class _LocationsPageState extends State<LocationsPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('Locais'),
+          title: Text(
+            'Locais',
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: const Color.fromARGB(255, 57, 85, 132),
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
@@ -69,29 +80,51 @@ class _LocationsPageState extends State<LocationsPage> {
             } else if (state is SuccessLocationsState) {
               final address = state.result.data;
 
-              return ListView.separated(
-                itemCount: state.result.data.length,
-                itemBuilder: (context, index) => ListTile(
-                  title: Text(
-                    address.elementAt(index).locationInfo.name,
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: const Color.fromARGB(255, 57, 85, 132),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    address.elementAt(index).locationInfo.address.address,
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                  trailing: const Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.lightGreen,
-                  ),
-                ),
-                separatorBuilder: (context, index) => const Divider(),
-              );
+              log('$address');
+
+              return _SuccessLocationWidget(address: address);
             }
             return const SizedBox();
           },
         ),
+      );
+}
+
+class _SuccessLocationWidget extends StatelessWidget {
+  final List<Video> address;
+
+  const _SuccessLocationWidget({required this.address});
+
+  @override
+  Widget build(BuildContext context) => ListView.separated(
+        itemCount: address.length,
+        itemBuilder: (context, index) => InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LocationDetailPage(
+                videoUrl: address.elementAt(index).uri,
+                info: address.elementAt(index).videoInfo,
+              ),
+            ),
+          ),
+          child: ListTile(
+            title: Text(
+              address.elementAt(index).locationInfo.name,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: const Color.fromARGB(255, 57, 85, 132),
+                  fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text(
+              address.elementAt(index).locationInfo.address.address,
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.lightGreen,
+            ),
+          ),
+        ),
+        separatorBuilder: (context, index) => const Divider(),
       );
 }
