@@ -1,4 +1,9 @@
-sealed class LoginState {}
+import 'package:equatable/equatable.dart';
+
+sealed class LoginState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
 final class InitialLoginState extends LoginState {}
 
