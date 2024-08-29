@@ -15,10 +15,10 @@ class GabrielRepository extends IGabrielRepository {
 
   @override
   Future<VideoModel?> getAllLocations({String size = '10'}) async {
-    final url =
-        'http://10.0.2.2:3001/v1/videos/history?limit=$size'; //! para rodar no emulador android
     // final url =
-    //     'http://127.0.0.1:3001/v1/videos/history?limit=$size'; //! para rodar no emulador ios
+    //     'http://10.0.2.2:3001/v1/videos/history?limit=$size'; //! para rodar no emulador android
+    final url =
+        'http://127.0.0.1:3001/v1/videos/history?limit=$size'; //! para rodar no emulador ios
     // final url =
     //     'http://localhost:3001/v1/videos/history?limit=$size'; //! para rodar no browser e testes
 
@@ -36,6 +36,9 @@ class GabrielRepository extends IGabrielRepository {
 
         case HttpStatus.notFound:
           throw Exception('Failed to find the url. ${response.statusCode}');
+
+        case HttpStatus.internalServerError:
+          throw Exception('Internal server error. ${response.statusCode}');
 
         default:
           throw Exception('Failed to load locations: ${response.statusCode}');
