@@ -62,25 +62,25 @@ class _LocationsPageState extends State<LocationsPage> {
         ),
         body: BlocBuilder<LocationsCubit, LocationsState>(
           builder: (context, state) {
-            if (state is InitialLocationsState) {
-              return const Center(child: Text('Obtendo dados...'));
-            } else if (state is LoadingLocationsState) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state is ErrorLocationsState) {
-              return Center(
-                child: ElevatedButton(
-                  onPressed: cubit.getLocations,
-                  child: const Text('Recarregar'),
-                ),
-              );
-            } else if (state is SuccessLocationsState) {
-              final address = state.result.data;
+            switch (state) {
+              case InitialLocationsState():
+                return const Center(child: Text('Obtendo dados...'));
+              case LoadingLocationsState():
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              case ErrorLocationsState():
+                return Center(
+                  child: ElevatedButton(
+                    onPressed: cubit.getLocations,
+                    child: const Text('Recarregar'),
+                  ),
+                );
+              case SuccessLocationsState():
+                final address = state.result.data;
 
-              return _SuccessLocationWidget(address: address);
+                return _SuccessLocationWidget(address: address);
             }
-            return const SizedBox();
           },
         ),
       );
