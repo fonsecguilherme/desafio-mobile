@@ -42,12 +42,14 @@ class _LoginPageState extends State<LoginPage> {
           }
         },
         builder: (context, state) {
-          if (state is LoadingLoginState) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else {
-            return const LoginInitialWidget();
+          switch (state) {
+            case LoadingLoginState():
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+
+            default:
+              return const LoginInitialWidget();
           }
         },
       ),

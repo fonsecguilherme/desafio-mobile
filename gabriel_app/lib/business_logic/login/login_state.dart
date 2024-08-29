@@ -16,3 +16,5 @@ final class ErrorLoginState extends LoginState {
 
   ErrorLoginState({required this.errorMessage});
 }
+
+enum ErrorTypes { emptyField, invalidLogin }
